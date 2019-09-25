@@ -1,0 +1,15 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: image-registry
+  namespace: openshift-image-registry
+spec:
+  host: image-registry.apps.cluster-f347.f347.sandbox1242.opentlc.com
+  port:
+    targetPort: 5000-tcp
+  subdomain: ""
+  tls:
+    termination: reencrypt
+  to:
+    kind: Service
+    name: image-registry
